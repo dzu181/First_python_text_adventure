@@ -1,6 +1,5 @@
 from sys import exit
 
-
 def start():
 	print("You don't remember anything. You are fallen.")
 	print("You don't know anywhere to go, but the path ahead.")
