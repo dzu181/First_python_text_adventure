@@ -12,6 +12,7 @@ def start():
 	# to The Great Wall
 	great_wall()
 
+	# Good ending?
 	print("Game over.")
 	exit(0)
 
@@ -21,15 +22,17 @@ def chest():
 
 	print("You see a shiny chest lying near a bush ahead.")
 	print("Who knows what valuable stuff it would contain?")
-	print("What do you do next?")
-	print("1. Examine")
-	print("2. Open chest")
-	print("3. Leave the chest alone.")
-	
+
 	# Chest Key taken?
 	chest_key_obtained = False
 
 	while not chest_key_obtained:
+		# Repeated menu
+		print("What do you do next?")
+		print("1. Examine")
+		print("2. Open chest")
+		print("3. Leave the chest alone.")
+
 		chest_choice = input("> ")
 	
 		if chest_choice == "1":
@@ -49,11 +52,14 @@ def chest():
 
 def open_chest():
 	print("Alright! Let's open this chest.")
-	print("1. Kick the chest hard!")
-	print("2. Cast a spell to open the chest.")
-	print("3. Give up.")
-
+	
 	while True:
+		# Repeated menu
+		print("So how will you open it?")		
+		print("1. Kick the chest hard!")
+		print("2. Cast a spell to open the chest.")
+		print("3. Give up.")
+
 		open_choice = input("> ")
 	
 		if open_choice == "1":
@@ -83,15 +89,17 @@ def crow():
 	print("After leaving the chest, you continue to the path ahead.")
 	print("You see a strange short tree, with a white crow on the longest branch.")
 	print("The crow is holding a shiny key in its mouth.")
-	print("What do you do next?")
-	print("1. Look at the crow")
-	print("2. Scare the crow off.")
-	print("3. Show the crow your purple diamond.")
 
-	# So lan pham sai lam
+	# So lan pham sai lam cho phep (max: 3)
 	crow_false_attempt = 0
 
 	while True:
+		# Repeated menu
+		print("What do you do next?")
+		print("1. Look at the crow")
+		print("2. Scare the crow off.")
+		print("3. Show the crow your purple diamond.")
+
 		crow_choice = input("> ")
 	
 		if crow_choice == "1":
@@ -115,12 +123,14 @@ def crow():
 			print("You pick up the key.\n\n")
 			return True
 
+# The Great Wall
 def great_wall():
 	print("You stand before a very high and sturdy wall.")
 	print("The only way through the Great Wall is a locked door.")
-	## An com xong viet tiep
+	## An com xong viet tiep, nhung khong biet khi nao an com xong.
 	
-	
+
+# A more painful dead.
 def mistake_count(number):	
 	if number >= 3:
 		dead("Your intestines blow up, and a giant centipede runs out from it.")
