@@ -18,8 +18,7 @@ def start():
 
 # The Chest zone
 def chest():
-	"""Chest on the way, containing a Key to open Treasure room's door"""
-
+	
 	print("You see a shiny chest lying near a bush ahead.")
 	print("Who knows what valuable stuff it would contain?")
 
