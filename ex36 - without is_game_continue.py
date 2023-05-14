@@ -90,7 +90,7 @@ def crow():
 	print("You see a strange short tree, with a white crow on the longest branch.")
 	print("The crow is holding a shiny key in its mouth.")
 
-	# So lan pham sai lam cho phep (max: 3)
+	# Number of Failed attempts (max: 3)
 	crow_false_attempt = 0
 
 	while True:
@@ -127,7 +127,9 @@ def crow():
 def great_wall():
 	print("You stand before a very high and sturdy wall.")
 	print("The only way through the Great Wall is a locked door.")
-	## An com xong viet tiep, nhung khong biet khi nao an com xong.
+	## TODO list
+	# Write a key_selection procedure: what key you have, try out the key.
+	# Write a 100 HP wall, which you can kick until it opens.
 	
 
 # A more painful dead.
