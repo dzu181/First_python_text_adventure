@@ -18,7 +18,7 @@ def start():
 
 # The Chest zone
 def chest():
-	
+
 	print("You see a shiny chest lying near a bush ahead.")
 	print("Who knows what valuable stuff it would contain?")
 
@@ -26,11 +26,8 @@ def chest():
 	chest_key_obtained = False
 
 	while not chest_key_obtained:
-		# Repeated menu
-		print("What do you do next?")
-		print("1. Examine")
-		print("2. Open chest")
-		print("3. Leave the chest alone.")
+		## Remind player of choices
+		show_chest_menu()
 
 		chest_choice = input("> ")
 	
@@ -48,16 +45,12 @@ def chest():
 	# Got the key
 	return chest_key_obtained
 
-
 def open_chest():
 	print("Alright! Let's open this chest.")
 	
 	while True:
-		# Repeated menu
-		print("So how will you open it?")		
-		print("1. Kick the chest hard!")
-		print("2. Cast a spell to open the chest.")
-		print("3. Give up.")
+		## Remind player of choices
+		show_open_chest_menu()
 
 		open_choice = input("> ")
 	
@@ -93,11 +86,8 @@ def crow():
 	crow_false_attempt = 0
 
 	while True:
-		# Repeated menu
-		print("What do you do next?")
-		print("1. Look at the crow")
-		print("2. Scare the crow off.")
-		print("3. Show the crow your purple diamond.")
+		# Remind player of choices
+		show_crow_menu()
 
 		crow_choice = input("> ")
 	
@@ -106,7 +96,7 @@ def crow():
 			print("You look at the crow. The crow looks back at you. In silence.")
 			print("================================================\n\n")
 			print("\nYou feel painful in your intestines, as if something wants to get out!")
-			print("You shouldn't have stared at the crow from the beginning.")
+			print("You shouldn't have stared at the crow from the beginning.\n")
 			crow_false_attempt += 1
 			mistake_count(crow_false_attempt)
 		elif crow_choice == "2":
@@ -131,6 +121,7 @@ def great_wall():
 	# Write a 100 HP wall, which you can kick until it opens.
 	
 
+
 # A more painful dead.
 def mistake_count(number):	
 	if number >= 3:
@@ -142,6 +133,23 @@ def dead(reason):
 	print(reason, "Good game!")
 	exit(0)
 
+def show_crow_menu():
+	print("What do you do next?")
+	print("1. Look at the crow")
+	print("2. Scare the crow off.")
+	print("3. Show the crow your purple diamond.")
+
+def show_open_chest_menu():
+	print("So how will you open it?")		
+	print("1. Kick the chest hard!")
+	print("2. Cast a spell to open the chest.")
+	print("3. Give up.")
+
+def show_chest_menu():
+	print("What do you do next?")
+	print("1. Examine")
+	print("2. Open chest")
+	print("3. Leave the chest alone.")
 
 # Begin game
 start()
