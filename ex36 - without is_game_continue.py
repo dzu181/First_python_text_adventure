@@ -98,13 +98,11 @@ def crow():
 			print("\nYou feel painful in your intestines, as if something wants to get out!")
 			print("You shouldn't have stared at the crow from the beginning.\n")
 			crow_false_attempt += 1
-			mistake_count(crow_false_attempt)
+			count_mistake(crow_false_attempt)
 		elif crow_choice == "2":
 			print("The crow flies away, with the shiny key still in his mouth.")
 			print("Damn it! The key must have been useful later!")
 			print("Now you lost it forever!")
-			crow_false_attempt += 2
-			mistake_count(crow_false_attempt)
 			return False
 		elif crow_choice == "3":
 			print("The crow rushes into your hand to grab the purple diamond.")
@@ -170,8 +168,8 @@ def kick_door():
 
 
 # A more painful dead.
-def mistake_count(number):	
-	if number >= 3:
+def count_mistake(number):	
+	if number >= 2:
 		dead("Your intestines blow up, and a giant centipede runs out from it.")
 
 
