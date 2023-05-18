@@ -10,7 +10,7 @@ def start():
 	# to Crow zone
 	got_crow_key = crow()
 	# to The Great Wall
-	great_wall()
+	great_wall(got_chest_key, got_crow_key)
 
 	# Good ending?
 	print("Game over.")
@@ -113,13 +113,56 @@ def crow():
 			return True
 
 # The Great Wall
-def great_wall():
+def great_wall(chest_key, crow_key):
 	print("You stand before a very high and sturdy wall.")
 	print("The only way through the Great Wall is a locked door.")
+	print("You look into your pockets.")
 	## TODO list
 	# Write a key_selection procedure: what key you have, try out the key.
 	# Write a 100 HP wall, which you can kick until it opens.
+	# Plus some surprises if too many same actions are repeated (Hidden action).
+	if chest_key:
+		print("You have the key from the shiny chest.")
+	if crow_key:
+		print("You have the key from the white crow.")
 	
+	# A surprise later - hidden choice
+	wall_attempt = 0
+
+	while True:
+		# Remind player of choices
+		show_great_wall_menu()
+		great_wall_choice = input("> ")
+
+		if great_wall_choice == "1":
+			if chest_key:
+				print("You tried the Chest key, but the door won't open.")
+				print("Try something else.")
+			else:
+				print("You don't have the Chest Key to use. So sad.")
+				print("Try something else.")
+		elif great_wall_choice == "2:"
+			if crow_key:
+				print("You tried the Crow key, and the door is opened.")
+				print("A new journey awaits you ahead.")
+				print("TO BE CONTINUED...")
+				exit(0)
+			else:
+				print("You don't have the Crow Key! Remember something at the tree?")
+				print("Try something else.")
+
+		# Player rage mode. Destroy things!	(wall_attempt == 3)		
+		wall_attempt +=1
+		if wall_attempt == 3:
+			print("Damn it! Here goes nothing!")
+			kick_door()
+
+def kick_door():
+	
+	## TODO list:
+	# Make this a 100 HP door to kick until open, and win the game.
+	pass
+
 
 
 # A more painful dead.
@@ -150,6 +193,12 @@ def show_chest_menu():
 	print("1. Examine")
 	print("2. Open chest")
 	print("3. Leave the chest alone.")
+
+def show_great_wall_menu():
+	print("How do you think about this wall??")
+	print("1. Use Chest Key.")
+	print("2. Use Crow Key.")
+	print("3. Shout to the sky!")
 
 # Begin game
 start()
