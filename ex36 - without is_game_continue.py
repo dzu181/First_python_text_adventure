@@ -150,6 +150,10 @@ def great_wall(chest_key, crow_key):
 			else:
 				print("You don't have the Crow Key! Remember something at the tree?")
 				print("Try something else.")
+		elif great_wall_choice == "3":
+			print("You cry like a baby, your guts hate you.")
+			print("But no one can help you now. Better be back.")
+
 
 		# Player rage mode. Destroy things!	(wall_attempt == 3)		
 		wall_attempt +=1
