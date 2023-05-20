@@ -1,4 +1,5 @@
 from sys import exit
+import webbrowser
 
 def start():
 	first_intro()
@@ -9,9 +10,6 @@ def start():
 	# to The Great Wall
 	great_wall(got_chest_key, got_crow_key)
 
-	# Good ending?
-	print("Game over.")
-	exit(0)
 
 # The Chest zone
 def chest():
@@ -67,7 +65,7 @@ def crow():
 	print("You see a strange short tree, with a white crow on the longest branch.")
 	print("The crow is holding a shiny key in its mouth.")
 
-	# Number of Failed attempts (max: 2)
+	# Number of Failed attempts (max: 1)
 	crow_false_attempt = 0
 
 	while True:
@@ -122,12 +120,10 @@ def great_wall(chest_key, crow_key):
 			else:
 				print("You don't have the Chest Key to use. So sad.")
 				print("Try something else.")
-		elif great_wall_choice == "2:"
+		elif great_wall_choice == "2":
 			if crow_key:
 				print("You tried the Crow key, and the door is opened.")
-				print("A new journey awaits you ahead.")
-				print("TO BE CONTINUED...")
-				exit(0)
+				good_ending()
 			else:
 				print("You don't have the Crow Key! Remember something at the tree?")
 				print("Try something else.")
@@ -138,15 +134,40 @@ def great_wall(chest_key, crow_key):
 
 		# Player rage mode. Destroy things!	(wall_attempt == 3)		
 		wall_attempt +=1
-		if wall_attempt == max_wall_attempt:
+		if wall_attempt >= max_wall_attempt:
 			print("Damn it! Here goes nothing!")
 			kick_door()
 
 def kick_door():
-	
 	## TODO list:
 	# Make this a 100 HP door to kick until open, and win the game.
-	pass
+	print("You got super angry!! You tried anything but the door won't open!")
+	print("You decide to stomp your feet towards the door until it cracks.")
+
+	for wall_hp in range(100,0,-1):
+		print("The wall's HP is:", wall_hp, "\n")
+		print("Wanna kick the damn door?")
+		print("1. Hell yeah!")
+		print("2. ☌⟟⎐⟒ ⎍⌿")
+		print("3. Give up.")
+
+		kicking = input("> ")
+		if kicking == "1":
+			print("Brahmmm!! The door vibrates strongly from your kick.")
+			print("You have no idea you have this strength in you. The rage.")
+		elif kicking == "2":
+			print("You enter another dimension, where nothing moves and awares.")
+			webbrowser.open('https://bit.ly/41Wp0v8')
+			print("Then, you are pushed back to your reality, in front of the Great Wall.")
+			print("What the...?!")
+			# Return to while loop in great_wall(), reset wall's HP
+			return
+		else:
+			print("It is never too late to correct our mistakes.")
+			dead("Die! And reset the cycle.")
+
+	print("The door is brokenly open. You see a big new road ahead of you.")
+	good_ending()
 
 
 def first_intro():
@@ -157,7 +178,6 @@ def first_intro():
 def dead(reason):
 	print(reason, "Good game!")
 	exit(0)
-
 
 # A more painful dead.
 def count_mistake(number):	
@@ -187,6 +207,11 @@ def show_great_wall_menu():
 	print("1. Use Chest Key.")
 	print("2. Use Crow Key.")
 	print("3. Shout to the sky!")
+
+def good_ending():
+	print("A new journey awaits you ahead.")
+	print("TO BE CONTINUED...")
+	exit(0)
 
 # Begin game
 start()
