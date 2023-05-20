@@ -1,10 +1,7 @@
 from sys import exit
 
-
 def start():
-	print("You don't remember anything. You are fallen.")
-	print("You don't know anywhere to go but the path ahead.")
-	print("You begin to step forward into the forest...")
+	first_intro()
 	# to Chest zone
 	got_chest_key = chest()
 	# to Crow zone
@@ -18,24 +15,19 @@ def start():
 
 # The Chest zone
 def chest():
-
 	print("You see a shiny chest lying near a bush ahead.")
 	print("Who knows what valuable stuff it would contain?")
 
-	# Chest Key taken?
 	chest_key_obtained = False
 
 	while not chest_key_obtained:
-		## Remind player of choices
 		show_chest_menu()
 
 		chest_choice = input("> ")
 	
 		if chest_choice == "1":
-			print("\n================================================")
 			print("You look carefully at the lock area of the chest.", end=' ')
 			print("It is rusted badly. \nAnd very FRAGILE.")
-			print("================================================\n")
 			
 		elif chest_choice == "2":
 			chest_key_obtained = open_chest()
@@ -49,32 +41,25 @@ def open_chest():
 	print("Alright! Let's open this chest.")
 	
 	while True:
-		## Remind player of choices
 		show_open_chest_menu()
 
 		open_choice = input("> ")
 	
 		if open_choice == "1":
-			print("\n================================================")
 			print("You kicked the chest hard!! BANG!!")
 			print("The lock area is heavily damaged and the chest is wide open.")
 			print("You found an amazing purple diamond. And a mysterious key.\n")
-			print("================================================\n\n")
 			return True
 
 		elif open_choice == "2":
-			print("\n================================================")
 			print("Avada Kedavra!!")
 			print("* The chest remains intact. And your smile disappeared.")
-			print("================================================\n\n")
 			
 		elif open_choice == "3":
 			print("Quit too soon?")
 			dead("You died of giving up your purpose.")
 		else:
-			print("\n================================================")
 			print("You look around. The peaceful atmosphere calms you down.")
-			print("================================================\n\n")
 	
 # The Crow zone
 def crow():
@@ -82,19 +67,16 @@ def crow():
 	print("You see a strange short tree, with a white crow on the longest branch.")
 	print("The crow is holding a shiny key in its mouth.")
 
-	# Number of Failed attempts (max: 3)
+	# Number of Failed attempts (max: 2)
 	crow_false_attempt = 0
 
 	while True:
-		# Remind player of choices
 		show_crow_menu()
 
 		crow_choice = input("> ")
 	
 		if crow_choice == "1":
-			print("\n================================================")
 			print("You look at the crow. The crow looks back at you. In silence.")
-			print("================================================\n\n")
 			print("\nYou feel painful in your intestines, as if something wants to get out!")
 			print("You shouldn't have stared at the crow from the beginning.\n")
 			crow_false_attempt += 1
@@ -112,6 +94,7 @@ def crow():
 
 # The Great Wall
 def great_wall(chest_key, crow_key):
+	print("You leave the tree to continue your journey.")
 	print("You stand before a very high and sturdy wall.")
 	print("The only way through the Great Wall is a locked door.")
 	print("You look into your pockets.")
@@ -126,9 +109,9 @@ def great_wall(chest_key, crow_key):
 	
 	# A surprise later - hidden choice
 	wall_attempt = 0
+	max_wall_attempt = 3
 
 	while True:
-		# Remind player of choices
 		show_great_wall_menu()
 		great_wall_choice = input("> ")
 
@@ -155,7 +138,7 @@ def great_wall(chest_key, crow_key):
 
 		# Player rage mode. Destroy things!	(wall_attempt == 3)		
 		wall_attempt +=1
-		if wall_attempt == 3:
+		if wall_attempt == max_wall_attempt:
 			print("Damn it! Here goes nothing!")
 			kick_door()
 
@@ -166,17 +149,20 @@ def kick_door():
 	pass
 
 
+def first_intro():
+	print("You don't remember anything. You are fallen.")
+	print("You don't know anywhere to go but the path ahead.")
+	print("You begin to step forward into the forest...")
+
+def dead(reason):
+	print(reason, "Good game!")
+	exit(0)
+
 
 # A more painful dead.
 def count_mistake(number):	
 	if number >= 2:
 		dead("Your intestines blow up, and a giant centipede runs out from it.")
-
-
-# Character dead -> End game
-def dead(reason):
-	print(reason, "Good game!")
-	exit(0)
 
 def show_crow_menu():
 	print("What do you do next?")
