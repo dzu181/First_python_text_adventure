@@ -17,4 +17,3 @@ def display_text(*args: any, end: str = '\n') -> None:
         if i != len_args - 1:
             print(' ', end='')
     print(end=end)
-	
