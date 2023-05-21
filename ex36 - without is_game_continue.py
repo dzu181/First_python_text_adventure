@@ -2,6 +2,9 @@ from sys import exit, stdout
 import time
 import webbrowser
 
+# Global constants
+MENU_DELAY: float = 0.5
+
 def start():
 	first_intro()
 	# to Chest zone
@@ -186,35 +189,35 @@ def count_mistake(number):
 		dead("Your intestines blow up, and a giant centipede runs out from it.")
 
 def show_crow_menu():
-	time.sleep(0.5)
+	time.sleep(MENU_DELAY)
 	display_text("What do you do next?")
 	display_text("1. Look at the crow")
 	display_text("2. Scare the crow off.")
 	display_text("3. Show the crow your purple diamond.")
 
 def show_open_chest_menu():
-	time.sleep(0.5)
+	time.sleep(MENU_DELAY)
 	display_text("So how will you open it?")		
 	display_text("1. Kick the chest hard!")
 	display_text("2. Cast a spell to open the chest.")
 	display_text("3. Give up.")
 
 def show_chest_menu():
-	time.sleep(0.5)
+	time.sleep(MENU_DELAY)
 	display_text("What do you do next?")
 	display_text("1. Examine")
 	display_text("2. Open chest")
 	display_text("3. Leave the chest alone.")
 
 def show_great_wall_menu():
-	time.sleep(0.5)
+	time.sleep(MENU_DELAY)
 	display_text("How do you think about this wall??")
 	display_text("1. Use Chest Key.")
 	display_text("2. Use Crow Key.")
 	display_text("3. Shout to the sky!")
 
 def good_ending():
-	time.sleep(0.5)
+	time.sleep(MENU_DELAY)
 	display_text("A new journey awaits you ahead.")
 	display_text("TO BE CONTINUED...")
 	exit(0)
