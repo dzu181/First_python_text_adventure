@@ -1,4 +1,4 @@
-from sys import exit, stdout
+from sys import exit
 import time
 import webbrowser
 
