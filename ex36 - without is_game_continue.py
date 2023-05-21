@@ -149,7 +149,7 @@ def kick_door():
 	display_text("You decide to stomp your feet towards the door until it cracks.")
 
 	for wall_hp in range(100,0,-1):
-		display_text("The wall's HP is: " + wall_hp, "\n")
+		display_text("The wall's HP is:", wall_hp, "\n")
 		display_text("Wanna kick the damn door?")
 		display_text("1. Hell yeah!")
 		display_text("2. ☌⟟⎐⟒ ⎍⌿")
@@ -180,7 +180,7 @@ def first_intro():
 	display_text("You begin to step forward into the forest...")
 
 def dead(reason):
-	display_text(reason + " Good game!")
+	display_text(reason, "Good game!")
 	exit(0)
 
 # A more painful dead.
@@ -222,15 +222,19 @@ def good_ending():
 	display_text("TO BE CONTINUED...")
 	exit(0)
 
-def display_text(text: str, end: str = '\n') -> None:
+def display_text(*args: any, end: str = '\n') -> None:
 	"""
-	Prints a given text character by character with a delay between each character.
+	Prints given texts, character by character with a delay between each character.
 	"""
 	DELAY: float = 0.05
-	for char in text:
-		print(char, end='')
-		stdout.flush() 
-		time.sleep(DELAY)
+	for i in range(len(args)):
+		text: str = str(args[i])
+		for char in text:
+			print(char, end='')
+			stdout.flush() 
+			time.sleep(DELAY)
+		if (i != len(args) - 1):
+			print(' ', end='')
 	print(end=end)
 
 # Begin game
