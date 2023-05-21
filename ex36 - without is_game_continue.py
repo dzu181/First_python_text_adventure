@@ -180,7 +180,7 @@ def first_intro():
 	display_text("You begin to step forward into the forest...")
 
 def dead(reason):
-	display_text(reason, "Good game!")
+	display_text(reason + " Good game!")
 	exit(0)
 
 # A more painful dead.
