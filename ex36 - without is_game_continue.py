@@ -101,15 +101,12 @@ def great_wall(chest_key, crow_key):
 	display_text("You leave the tree to continue your journey.")
 	display_text("You stand before a very high and sturdy wall.")
 	display_text("The only way through the Great Wall is a locked door.")
-	display_text("You look into your pockets.")
-	## TODO list
-	# Write a key_selection procedure: what key you have, try out the key.
-	# Write a 100 HP wall, which you can kick until it opens.
-	# Plus some surprises if too many same actions are repeated (Hidden action).
+	display_text("You look into your pockets:")
+	time.sleep(MENU_DELAY)
 	if chest_key:
-		display_text("You have the key from the shiny chest.")
+		display_text("-> You have the key from the shiny chest.")
 	if crow_key:
-		display_text("You have the key from the white crow.")
+		display_text("-> You have the key from the white crow.")
 	
 	# A surprise later - hidden choice
 	wall_attempt = 0
@@ -137,9 +134,9 @@ def great_wall(chest_key, crow_key):
 			display_text("You cry like a baby, your guts hate you.")
 			display_text("But no one can help you now. Better be back.")
 
-
-		# Player rage mode. Destroy things!	(wall_attempt == 3)		
 		wall_attempt +=1
+
+		# Player rage mode. Destroy things!	(wall_attempt == 3)	
 		if wall_attempt >= max_wall_attempt:
 			display_text("Damn it! Here goes nothing!")
 			kick_door()
@@ -150,17 +147,14 @@ def kick_door():
 	display_text("You got super angry!! You tried anything but the door won't open!")
 	display_text("You decide to stomp your feet towards the door until it cracks.")
 
-	for wall_hp in range(100,0,-1):
-		display_text("The wall's HP is:", wall_hp, "\n")
-		display_text("Wanna kick the damn door?")
-		display_text("1. Hell yeah!")
-		display_text("2. ☌⟟⎐⟒ ⎍⌿")
-		display_text("Any other key: Give up.")
-
+	wall_hp = 100
+	while wall_hp > 0:
+		show_kick_door_menu(wall_hp)
 		kicking = input("> ")
 		if kicking == "1":
 			display_text("Brahmmm!! The door vibrates strongly from your kick.")
 			display_text("You have no idea you have this strength in you. The rage.")
+			wall_hp -= 1
 		elif kicking == "2":
 			display_text("You enter another dimension, where nothing moves and awares.")
 			webbrowser.open('https://bit.ly/41Wp0v8')
@@ -168,9 +162,11 @@ def kick_door():
 			display_text("What the...?!")
 			# Return to while loop in great_wall(), reset wall's HP
 			return
-		else:
+		elif kicking == "3":
 			display_text("It is never too late to correct our mistakes.")
 			dead("Die! And reset the cycle.")
+		else:
+			display_text("Fuck! What do you want me to do??!?")
 
 	display_text("The door is brokenly open. You see a big new road ahead of you.")
 	good_ending()
@@ -217,6 +213,14 @@ def show_great_wall_menu():
 	display_text("1. Use Chest Key.")
 	display_text("2. Use Crow Key.")
 	display_text("3. Shout to the sky!")
+
+def show_kick_door_menu(hp):
+	time.sleep(MENU_DELAY)	
+	display_text("The wall's HP is:", hp, "\n")
+	display_text("Wanna kick the damn door?")
+	display_text("1. Hell yeah!")
+	display_text("2. ☌⟟⎐⟒ ⎍⌿")
+	display_text("3. Give up.")	
 
 def good_ending():
 	time.sleep(MENU_DELAY)
