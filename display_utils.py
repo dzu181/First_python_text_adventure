@@ -6,7 +6,7 @@ def display_text(*args: any, end: str = '\n') -> None:
     """
     Prints given texts, character by character with a delay between each character.
     """
-    DELAY: float = 0.05
+    DELAY: float = 0.02
     len_args: int = len(args)
     for i in range(len_args):
         text: str = str(args[i])
