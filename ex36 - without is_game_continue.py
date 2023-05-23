@@ -155,7 +155,7 @@ def kick_door():
 		display_text("Wanna kick the damn door?")
 		display_text("1. Hell yeah!")
 		display_text("2. ☌⟟⎐⟒ ⎍⌿")
-		display_text("3. Give up.")
+		display_text("Any other key: Give up.")
 
 		kicking = input("> ")
 		if kicking == "1":
@@ -168,7 +168,7 @@ def kick_door():
 			display_text("What the...?!")
 			# Return to while loop in great_wall(), reset wall's HP
 			return
-		elif kicking == "3":
+		else:
 			display_text("It is never too late to correct our mistakes.")
 			dead("Die! And reset the cycle.")
 
