@@ -35,7 +35,7 @@ def chest():
 			
 		elif chest_choice == "2":
 			chest_key_obtained = open_chest()
-		else:
+		elif chest_choice == "3":
 			display_text("Quit too soon?")
 			dead("You died of giving up your purpose.")
 	# Got the key
@@ -168,7 +168,7 @@ def kick_door():
 			display_text("What the...?!")
 			# Return to while loop in great_wall(), reset wall's HP
 			return
-		else:
+		elif kicking == "3":
 			display_text("It is never too late to correct our mistakes.")
 			dead("Die! And reset the cycle.")
 
