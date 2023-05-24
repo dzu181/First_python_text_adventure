@@ -23,8 +23,8 @@ def start():
 
 # The Chest zone
 def chest():
-    displayer.display_text("You see a shiny chest lying near a bush ahead.")
-    displayer.display_text("Who knows what valuable stuff it would contain?")
+    displayer.display_text("You see a shiny chest lying near a bush ahead.\n" +
+                           "Who knows what valuable stuff it would contain?")
 
     chest_key_obtained = False
 
@@ -34,9 +34,8 @@ def chest():
         chest_choice = InputHandler.input("> ")
 
         if chest_choice == "1":
-            displayer.display_text("You look carefully at the lock area of the chest.", end=' ')
-            displayer.display_text("It is rusted badly. \nAnd very FRAGILE.")
-
+            displayer.display_text("You look carefully at the lock area of the chest. It is rusted badly.\n" +
+                                   "And very FRAGILE.")
         elif chest_choice == "2":
             chest_key_obtained = open_chest()
         elif chest_choice == "3":
@@ -55,9 +54,9 @@ def open_chest():
         open_choice = InputHandler.input("> ")
 
         if open_choice == "1":
-            displayer.display_text("You kicked the chest hard!! BANG!!")
-            displayer.display_text("The lock area is heavily damaged and the chest is wide open.")
-            displayer.display_text("You found an amazing purple diamond. And a mysterious key.\n")
+            displayer.display_text("You kicked the chest hard!! BANG!!\n" +
+                                   "The lock area is heavily damaged and the chest is wide open.\n" +
+                                   "You found an amazing purple diamond. And a mysterious key.\n")
             return True
 
         elif open_choice == "2":
