@@ -9,3 +9,7 @@ Run command
 ```
 pip install -r requirements.txt
 ```
+
+## Flow chart
+
+![Flow chart](./flow_chart/flow_chart.png)
