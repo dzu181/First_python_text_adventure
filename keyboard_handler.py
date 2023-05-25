@@ -1,5 +1,3 @@
-import sys
-
 from pynput import keyboard
 
 
@@ -11,7 +9,9 @@ class KeyboardHandler:
         self.current_key = None
 
     def on_press(self, key):
-        if keyboard.Key.backspace != key:
+        if keyboard.Key.esc == key:
+            self.current_key = key
+        elif keyboard.Key.backspace != key:
             self.current_key = key
             self.controller.press(keyboard.Key.backspace)
 

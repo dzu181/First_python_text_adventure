@@ -31,7 +31,7 @@ def chest():
     while not chest_key_obtained:
         show_chest_menu()
 
-        chest_choice = InputHandler.input("> ")
+        chest_choice = InputHandler.input("> ").strip()
 
         if chest_choice == "1":
             displayer.display_text("You look carefully at the lock area of the chest. It is rusted badly.\n" +
@@ -51,7 +51,7 @@ def open_chest():
     while True:
         show_open_chest_menu()
 
-        open_choice = InputHandler.input("> ")
+        open_choice = InputHandler.input("> ").strip()
 
         if open_choice == "1":
             displayer.display_text("You kicked the chest hard!! BANG!!\n" +
@@ -82,7 +82,7 @@ def crow():
     while True:
         show_crow_menu()
 
-        crow_choice = InputHandler.input("> ")
+        crow_choice = InputHandler.input("> ").strip()
 
         if crow_choice == "1":
             displayer.display_text("You look at the crow. The crow looks back at you. In silence.\n" +
@@ -120,7 +120,7 @@ def great_wall(chest_key, crow_key):
 
     while True:
         show_great_wall_menu()
-        great_wall_choice = InputHandler.input("> ")
+        great_wall_choice = InputHandler.input("> ").strip()
 
         if great_wall_choice == "1":
             if chest_key:
@@ -157,7 +157,7 @@ def kick_door():
     wall_hp = 100
     while wall_hp > 0:
         show_kick_door_menu(wall_hp)
-        kicking = InputHandler.input("> ")
+        kicking = InputHandler.input("> ").strip()
         if kicking == "1":
             displayer.display_text("Brahmmm!! The door vibrates strongly from your kick.\n" +
                                    "You have no idea you have this strength in you. The rage.")
