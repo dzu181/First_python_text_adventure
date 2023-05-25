@@ -2,6 +2,14 @@
 
 My first game, inspired by "Learn Python 3 the hard way" book.
 
+## How to install requirements
+
+Run command
+
+```
+pip install -r requirements.txt
+```
+
 ## Flow chart
 
 ![Flow chart](./flow_chart/flow_chart.png)
