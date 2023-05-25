@@ -19,15 +19,8 @@ class KeyboardHandler:
         self.listener = keyboard.Listener(on_press=self.on_press)
         self.listener.start()  # start to listen on a separate thread
 
-    def run_listener(self):
-        self.listener.run()
-        self.listener.wait()
-
     def stop_listener(self):
         self.listener.stop()
-
-    def is_listener_alive(self):
-        return self.listener.is_alive()
 
     def get_current_key(self) -> keyboard.Key:
         """
