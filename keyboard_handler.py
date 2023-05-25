@@ -30,6 +30,9 @@ class KeyboardHandler:
         return self.listener.is_alive()
 
     def get_current_key(self) -> keyboard.Key:
+        """
+        Returns the current key and reset it
+        """
         temp = self.current_key
         self.current_key = None
         return temp
