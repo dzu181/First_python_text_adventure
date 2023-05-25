@@ -1,4 +1,3 @@
-import sys
 import time
 
 from pynput import keyboard
@@ -31,7 +30,7 @@ class Displayer:
                 current_key: keyboard.Key = self.keyboard_handler.get_current_key()
                 if current_key in self.SKIP_KEYS:
                     delay = 0
-                
+
                 print(char, end="", flush=True)
                 time.sleep(delay)
             if i != len_args - 1:
